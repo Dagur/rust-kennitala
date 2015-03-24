@@ -22,7 +22,7 @@ extern crate kennitala;
 use kennitala::is_valid;
 
 fn main(){
-        if is_valid("091280-5079") {
+        if is_valid("012345-6789") {
                 println!("Valid kennitala")
         } else {
                 println!("Invalid")
