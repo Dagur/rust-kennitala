@@ -1,27 +1,25 @@
-#![feature(phase)]
-#[phase(plugin)]
-extern crate regex_macros;
+#![feature(plugin)]
+#![plugin(regex_macros)]
 extern crate regex;
 
 pub fn is_valid(kennitala : &str) -> bool {
-    let constants = [3u,2u,7u,6u,5u,4u,3u,2u];
+    let constants = [3, 2, 7, 6, 5, 4, 3, 2];
     let re = regex!(r"^\d{6}-?\d{4}$");
     
     if re.is_match(kennitala) {
         let sanitized = kennitala.replace("-","");
-        let check_digit = sanitized
-            .as_slice()
-            .char_at(8)
-            .to_digit(10)
-            .unwrap();
+        let check_digit = (sanitized.as_bytes()[8] as char).to_digit(10).unwrap();
        
         let c = constants
             .iter()
-            .zip(sanitized.as_slice().chars())
-            .fold(0u, 
-                |sum : uint, (x, y) : (&uint, char)| 
-                sum + x * y.to_digit(10).unwrap()
+            .zip(sanitized.bytes())
+            .fold(0, 
+                |sum : u32, (x, y) : (&u32, u8)| 
+                sum + x * (y as char).to_digit(10).unwrap()
             );
+        
+        
+        println!("check digit: {0}", check_digit);
         
         if 11 - (c % 11) == check_digit {
             return true

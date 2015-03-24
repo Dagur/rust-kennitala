@@ -1,5 +1,9 @@
 [package]
 
 name = "kennitala"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["Dagur Páll Ammendrup <dagurp@gmail.com>"]
+
+[dependencies]
+regex = "0.1.20"
+regex_macros = "0.1.12"
