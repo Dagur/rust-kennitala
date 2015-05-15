@@ -3,7 +3,7 @@
 name = "kennitala"
 description = "This crate provides a simple way to verify if Icelandic SSN's (kennitala) are valid"
 version = "0.0.3"
-repository = https://github.com/Dagur/rust-kennitala
+repository = "https://github.com/Dagur/rust-kennitala"
 authors = ["Dagur Páll Ammendrup <dagurp@gmail.com>"]
 license = "MIT"
 
