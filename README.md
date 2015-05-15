@@ -3,7 +3,7 @@ rust-kennitala
 
 Simple crate for handling Icelandic national identifiers
 
-Works with rust nightly (24.03.2015)
+Works with rust 1.0 stable
 
 
 ##  Usage
