@@ -1,6 +1,8 @@
-#![feature(plugin)]
-#![plugin(regex_macros)]
 extern crate regex;
+
+macro_rules! regex(
+    ($s:expr) => (regex::Regex::new($s).unwrap());
+);
 
 pub fn is_valid(kennitala : &str) -> bool {
     let constants = [3, 2, 7, 6, 5, 4, 3, 2];
